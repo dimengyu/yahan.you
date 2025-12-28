@@ -14,14 +14,21 @@ const App: React.FC = () => {
   useImagePreloader();
   const [activeSection, setActiveSection] = useState<string>('home');
   const [theme, setTheme] = useState<'day' | 'night'>('day');
-  const [isMobile, setIsMobile] = useState(false);
+  
+  // Initialize based on current window width to avoid flash of desktop content
+  const [isMobile, setIsMobile] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return window.innerWidth < 1024;
+    }
+    return false;
+  });
 
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth < 1024); // Treat tablets as mobile for now to ensure best experience
+      setIsMobile(window.innerWidth < 1024);
     };
     
-    checkMobile();
+    // Add listener for resize events
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
