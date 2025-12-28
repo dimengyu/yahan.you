@@ -7,8 +7,10 @@ import About from './components/About';
 import Footer from './components/Footer';
 import CustomCursor from './components/CustomCursor';
 import { NAV_LINKS } from './constants';
+import { useImagePreloader } from './hooks/useImagePreloader';
 
 const App: React.FC = () => {
+  useImagePreloader();
   const [activeSection, setActiveSection] = useState<string>('home');
   const [theme, setTheme] = useState<'day' | 'night'>('day');
 
