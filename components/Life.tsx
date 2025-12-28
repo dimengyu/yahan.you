@@ -498,7 +498,7 @@ const Life: React.FC = () => {
                 description={selectedHobby.description}
                 onClose={() => setSelectedHobby(null)} 
             />
-        ) : selectedHobby.title === "Pottery" ? (
+        ) : selectedHobby.title === "Ceramics" ? (
             <PotteryGallery 
                 images={selectedHobby.gallery || []} 
                 title={selectedHobby.title}
