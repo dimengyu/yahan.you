@@ -164,21 +164,24 @@ const SketchesGallery = ({ images, title, subtitle, description, onClose }: { im
   return (
     <div ref={containerRef} className="fixed inset-0 z-[60] bg-[#0a0a0a] text-white overflow-hidden animate-in fade-in duration-500 touch-none">
         {/* Header */}
-        <div className="absolute top-8 left-8 z-50 flex flex-col md:flex-row md:items-end gap-6 pointer-events-none max-w-6xl pr-24">
+        <div className="absolute top-6 left-6 md:top-8 md:left-8 z-50 flex flex-col md:flex-row md:items-end gap-4 md:gap-6 pointer-events-none max-w-6xl pr-16 md:pr-24">
             <div className="flex flex-col items-start shrink-0">
-                <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-white mb-2">
+                <h2 className="text-3xl md:text-6xl font-bold tracking-tighter text-white mb-2">
                     {title}
                 </h2>
                 <div className="flex items-center gap-3">
-                    <span className="px-2 py-1 bg-white text-black text-xs font-mono uppercase tracking-widest rounded-md">
+                    <span className="px-2 py-1 bg-white text-black text-[10px] md:text-xs font-mono uppercase tracking-widest rounded-md">
                         {subtitle}
                     </span>
-                    <span className="text-xs font-mono text-stone-400">
+                    <span className="text-[10px] md:text-xs font-mono text-stone-400 hidden md:inline-block">
                         // DRAG TO EXPLORE
+                    </span>
+                    <span className="text-[10px] md:text-xs font-mono text-stone-400 md:hidden">
+                        // SWIPE TO EXPLORE
                     </span>
                 </div>
             </div>
-            <p className="text-sm text-stone-300 font-mono leading-relaxed max-w-md md:mb-1 bg-white/5 backdrop-blur-sm p-4 rounded-lg border border-white/10 shadow-sm">
+            <p className="text-xs md:text-sm text-stone-300 font-mono leading-relaxed max-w-xs md:max-w-md md:mb-1 bg-white/5 backdrop-blur-sm p-3 md:p-4 rounded-lg border border-white/10 shadow-sm hidden md:block">
                 {description}
             </p>
         </div>
@@ -186,9 +189,9 @@ const SketchesGallery = ({ images, title, subtitle, description, onClose }: { im
         {/* Close Button */}
         <button 
             onClick={onClose}
-            className="absolute top-8 right-8 z-50 p-3 bg-white/10 hover:bg-white/20 rounded-full transition-colors cursor-pointer"
+            className="absolute top-6 right-6 md:top-8 md:right-8 z-50 p-2 md:p-3 bg-white/10 hover:bg-white/20 rounded-full transition-colors cursor-pointer"
         >
-            <X className="w-6 h-6 text-white" />
+            <X className="w-5 h-5 md:w-6 md:h-6 text-white" />
         </button>
 
         {/* Styles */}
@@ -244,6 +247,13 @@ const SketchesGallery = ({ images, title, subtitle, description, onClose }: { im
                 .gallery-card {
                     width: 300px;
                     height: 400px;
+                }
+            }
+            @media screen and (max-width: 768px) {
+                .gallery-card {
+                    width: 240px;
+                    height: 340px;
+                    border-width: 6px;
                 }
             }
         `}</style>
@@ -346,19 +356,19 @@ const Life: React.FC = () => {
                 <div className="absolute inset-0 bg-grid-pattern-dark bg-[length:40px_40px] opacity-[0.1] pointer-events-none rounded-[2.5rem]" />
 
                 {/* Title and Instructions */}
-                <div className="absolute top-8 left-12 z-20">
-                    <div className="font-mono text-accent-night text-sm mb-4">
+                <div className="absolute top-6 left-6 md:top-8 md:left-12 z-20">
+                    <div className="font-mono text-accent-night text-[10px] md:text-sm mb-2 md:mb-4">
                         // SYSTEM_STATUS: CREATIVE_OVERDRIVE
                     </div>
-                    <h2 className="text-6xl md:text-8xl font-bold tracking-tighter text-white mb-4">
+                    <h2 className="text-4xl md:text-6xl lg:text-8xl font-bold tracking-tighter text-white mb-2 md:mb-4">
                         02 // 5-9
                     </h2>
                     {selectedStack && (
                         <button
                             onClick={handleBackToStacks}
-                            className="flex items-center gap-2 text-accent-night hover:text-white transition-colors font-mono text-sm group"
+                            className="flex items-center gap-2 text-accent-night hover:text-white transition-colors font-mono text-xs md:text-sm group"
                         >
-                            <ArrowRight className="w-4 h-4 rotate-180 group-hover:-translate-x-1 transition-transform" />
+                            <ArrowRight className="w-3 h-3 md:w-4 md:h-4 rotate-180 group-hover:-translate-x-1 transition-transform" />
                             BACK_TO_STACKS
                         </button>
                     )}
@@ -371,22 +381,22 @@ const Life: React.FC = () => {
                 </div>
 
                 {/* Main Content Area */}
-                <div className="relative z-10 w-full h-full flex items-center justify-center pt-32">
+                <div className="relative z-10 w-full h-full flex items-center justify-center pt-24 md:pt-32 overflow-y-auto md:overflow-visible">
                     
                     {/* Three Categories View */}
                     {!selectedStack && (
-                        <div className="flex gap-8 md:gap-16 items-center justify-center w-full px-4">
+                        <div className="flex flex-col md:flex-row gap-8 md:gap-16 items-center justify-center w-full px-4 py-8 md:py-0">
                             {Object.values(HobbyType).map((type, stackIndex) => (
                                 <div
                                     key={type}
-                                    className="relative cursor-pointer group transition-transform hover:scale-105 duration-300"
+                                    className="relative cursor-pointer group transition-transform hover:scale-105 duration-300 shrink-0"
                                     onClick={() => handleStackClick(type)}
                                     style={{
                                         animation: `fadeInUp 0.6s ease-out ${stackIndex * 0.15}s backwards`
                                     }}
                                 >
                                     {/* Card/Stack Container */}
-                                    <div className="relative w-48 md:w-64 aspect-[3/4]">
+                                    <div className="relative w-40 md:w-48 lg:w-64 aspect-[3/4]">
                                         {type === HobbyType.HAND ? (
                                             // Stack Effect for HAND
                                             hobbyStacks[type].map((hobby, cardIndex) => {

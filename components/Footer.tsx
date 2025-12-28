@@ -24,10 +24,10 @@ const Footer: React.FC<FooterProps> = ({ theme = 'night' }) => {
   const isDay = theme === 'day';
 
   return (
-    <footer className={`relative w-full py-24 px-8 md:px-16 font-mono text-sm z-10 ${isDay ? 'text-stone-600' : 'text-stone-300 mix-blend-screen'}`}>
+    <footer className={`relative w-full py-12 px-6 md:py-24 md:px-16 font-mono text-sm z-10 ${isDay ? 'text-stone-600' : 'text-stone-300 mix-blend-screen'}`}>
       <div className="container mx-auto max-w-[95rem]">
         
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-32">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 mb-16 md:mb-32">
           {/* Label Column */}
           <div className="md:col-span-3 lg:col-span-2">
             <span className={`italic font-serif text-lg ${isDay ? 'text-stone-500' : 'text-stone-400'}`}>Contact</span>

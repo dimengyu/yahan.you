@@ -100,21 +100,24 @@ const PotteryGallery: React.FC<PotteryGalleryProps> = ({ images, title, subtitle
   return (
     <div ref={containerRef} className="fixed inset-0 z-[60] bg-[#121212] text-[#F1F1F1] overflow-hidden animate-in fade-in duration-500">
         {/* Header */}
-        <div className="absolute top-8 left-8 z-50 flex flex-col md:flex-row md:items-end gap-6 pointer-events-none max-w-6xl pr-24">
+        <div className="absolute top-6 left-6 md:top-8 md:left-8 z-50 flex flex-col md:flex-row md:items-end gap-4 md:gap-6 pointer-events-none max-w-6xl pr-16 md:pr-24">
             <div className="flex flex-col items-start shrink-0">
-                <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-white mb-2">
+                <h2 className="text-3xl md:text-6xl font-bold tracking-tighter text-white mb-2">
                     {title}
                 </h2>
                 <div className="flex items-center gap-3">
-                    <span className="px-2 py-1 bg-white text-black text-xs font-mono uppercase tracking-widest rounded-md">
+                    <span className="px-2 py-1 bg-white text-black text-[10px] md:text-xs font-mono uppercase tracking-widest rounded-md">
                         {subtitle}
                     </span>
-                    <span className="text-xs font-mono text-stone-400">
+                    <span className="text-[10px] md:text-xs font-mono text-stone-400 hidden md:inline-block">
                         // HOVER TO INTERACT
+                    </span>
+                    <span className="text-[10px] md:text-xs font-mono text-stone-400 md:hidden">
+                        // TAP TO INTERACT
                     </span>
                 </div>
             </div>
-            <p className="text-sm text-stone-300 font-mono leading-relaxed max-w-md md:mb-1 bg-white/5 backdrop-blur-sm p-4 rounded-lg border border-white/10 shadow-sm">
+            <p className="text-xs md:text-sm text-stone-300 font-mono leading-relaxed max-w-xs md:max-w-md md:mb-1 bg-white/5 backdrop-blur-sm p-3 md:p-4 rounded-lg border border-white/10 shadow-sm hidden md:block">
                 {description}
             </p>
         </div>
@@ -122,14 +125,14 @@ const PotteryGallery: React.FC<PotteryGalleryProps> = ({ images, title, subtitle
         {/* Close Button */}
         <button 
             onClick={onClose}
-            className="absolute top-8 right-8 z-50 p-3 bg-white/10 hover:bg-white/20 rounded-full transition-colors cursor-pointer"
+            className="absolute top-6 right-6 md:top-8 md:right-8 z-50 p-2 md:p-3 bg-white/10 hover:bg-white/20 rounded-full transition-colors cursor-pointer"
         >
-            <X className="w-6 h-6 text-white" />
+            <X className="w-5 h-5 md:w-6 md:h-6 text-white" />
         </button>
 
         {/* Grid Content */}
-        <div className="w-full h-full overflow-y-auto pt-48 pb-12 px-4 md:px-8">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-[1vw] max-w-[1600px] mx-auto">
+        <div className="w-full h-full overflow-y-auto pt-32 md:pt-48 pb-12 px-4 md:px-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-[1vw] max-w-[1600px] mx-auto">
                 {displayImages.map((img, idx) => (
                     <div 
                         key={idx} 

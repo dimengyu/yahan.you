@@ -221,17 +221,17 @@ const Projects: React.FC = () => {
         <div className="sticky top-6 h-screen flex items-center justify-center overflow-hidden">
             
             {/* The Visual Card */}
-            <div className="relative w-full h-[90vh] flex flex-col p-8 md:p-16 bg-card-day rounded-[2.5rem] shadow-2xl border border-white/50 text-text-day overflow-hidden">
+            <div className="relative w-full h-[90vh] flex flex-col p-6 md:p-16 bg-card-day rounded-[2.5rem] shadow-2xl border border-white/50 text-text-day overflow-hidden">
                 {/* Background Grid */}
                 <div className="absolute inset-0 bg-grid-pattern bg-[length:40px_40px] opacity-[0.05] pointer-events-none rounded-[2.5rem]" />
 
                 {/* Header */}
                 <div className="relative z-10 flex-none flex flex-col md:flex-row md:items-baseline justify-between mb-8 md:mb-12 border-b border-black/10 pb-6">
-                  <h2 className="text-6xl md:text-8xl font-bold tracking-tighter">
+                  <h2 className="text-4xl md:text-6xl lg:text-8xl font-bold tracking-tighter">
                       01 // 9-5
                   </h2>
                   <div className="flex flex-col items-end mt-4 md:mt-0">
-                      <span className="font-mono text-accent-day text-sm tracking-widest">
+                      <span className="font-mono text-accent-day text-[10px] md:text-sm tracking-widest">
                       [ PROFESSIONAL_WORKS_DATABASE ]
                       </span>
                       <span className="font-mono text-stone-400 text-[10px] mt-1 flex items-center gap-1">

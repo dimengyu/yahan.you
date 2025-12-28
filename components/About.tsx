@@ -61,12 +61,12 @@ const About: React.FC = () => {
       <div className="sticky top-6 h-screen flex items-center justify-center overflow-hidden">
         
         {/* The Visual Card */}
-        <div className="relative w-full h-[90vh] flex flex-col p-8 md:p-16 bg-card-night text-text-night rounded-[2.5rem] shadow-[0_0_40px_rgba(255,255,255,0.05)] border border-white/20 overflow-hidden transition-colors duration-500">
+        <div className="relative w-full h-[90vh] flex flex-col p-6 md:p-16 bg-card-night text-text-night rounded-[2.5rem] shadow-[0_0_40px_rgba(255,255,255,0.05)] border border-white/20 overflow-hidden transition-colors duration-500">
             
             {/* Header (Static) */}
             <div className="relative z-20 flex-none flex justify-between items-start mb-8 md:mb-10 border-b border-white/10 pb-6 bg-card-night/90 backdrop-blur-sm">
                  <div>
-                    <h2 className="text-5xl md:text-8xl font-bold tracking-tighter text-white">
+                    <h2 className="text-4xl md:text-6xl lg:text-8xl font-bold tracking-tighter text-white">
                         03 // ARCHIVE
                     </h2>
                  </div>

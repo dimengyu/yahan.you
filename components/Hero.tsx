@@ -40,7 +40,7 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <div className="relative h-[90vh] flex flex-col justify-between p-8 md:p-16 bg-card-hero rounded-[2.5rem] shadow-2xl border border-white/50 overflow-hidden">
+    <div className="relative h-[90vh] flex flex-col justify-between p-6 md:p-16 bg-card-hero rounded-[2.5rem] shadow-2xl border border-white/50 overflow-hidden">
       
       {/* Animation Styles */}
       <style>{`
