@@ -6,6 +6,7 @@ import Life from './components/Life';
 import About from './components/About';
 import Footer from './components/Footer';
 import CustomCursor from './components/CustomCursor';
+import MobilePlaceholder from './components/MobilePlaceholder';
 import { NAV_LINKS } from './constants';
 import { useImagePreloader } from './hooks/useImagePreloader';
 
@@ -13,6 +14,21 @@ const App: React.FC = () => {
   useImagePreloader();
   const [activeSection, setActiveSection] = useState<string>('home');
   const [theme, setTheme] = useState<'day' | 'night'>('day');
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024); // Treat tablets as mobile for now to ensure best experience
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  if (isMobile) {
+    return <MobilePlaceholder />;
+  }
 
   useEffect(() => {
     // Fade in animation for the whole app
